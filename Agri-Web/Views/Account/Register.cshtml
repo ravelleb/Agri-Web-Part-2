@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" id="role" name="role" required>
+            <option value="Farmer">Farmer</option>
+            <option value="Employee">Employee</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    @if (ViewBag.Error != null)
+    {
+        <p class="text-danger">@ViewBag.Error</p>
+    }
+    @if (ViewBag.Success != null)
+    {
+        <p class="text-success">@ViewBag.Success</p>
+    }
+</form>

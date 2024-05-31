@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Agri-Web</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                @if (Context.Session.GetString("Role") == "Farmer")
+                {
+                    <li><a asp-area="" asp-controller="Products" asp-action="Index">My Products</a></li>
+                    <li><a asp-area="" asp-controller="Products" asp-action="Add">Add Product</a></li>
+                }
+                @if (Context.Session.GetString("Role") == "Employee")
+                {
+                    <li><a asp-area="" asp-controller="Farmers" asp-action="Index">Farmers</a></li>
+                }
+                <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - Agri-Web</p>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿@model AgriWeb.Models.Farmer
+
+@{
+    ViewData["Title"] = "Add Farmer";
+}
+
+<h2>Add Farmer</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="Name" required>
+    </div>
+    <div class="form-group">
+        <label for="contactInfo">Contact Info</label>
+        <input type="text" class="form-control" id="contactInfo" name="ContactInfo" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Farmer</button>
+</form>
